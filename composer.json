@@ -1,0 +1,41 @@
+{
+    "name" : "innova/angular-ui-translation-bundle",
+    "description" : "Provides a new Angular JS filter which can access to Symfony 2 translations.",
+    "type" : "library",
+    "authors" : [{
+            "name" : "Arnaud Bey",
+            "email" : "arnaud.bey@u-grenoble3.fr"
+        }, {
+            "name" : "Axel Penin",
+            "email" : "axel.penin@u-grenoble3.fr"
+        }, {
+            "name" : "Eric Vincent",
+            "email" : "eric.vincent@u-grenoble3.fr"
+        }, {
+            "name" : "Donovan Tengblad",
+            "email" : "donovan.tengblad@u-grenoble3.fr"
+        }
+    ],
+    "keywords" : [
+        "angular",
+        "translation",
+        "symfony2"
+    ],
+    "homepage" : "http://github.com/InnovaLangues/AngularUITranslationBundle",
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "php" : ">=5.3.0",
+        "symfony/symfony" : "2.*",
+        "claroline/kernel-bundle" : "~1.0",
+        "innova/angular-js-bundle" : "1.*",
+        "willdurand/js-translation-bundle": "1.2"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Innova\\AngularUITranslationBundle" : "."
+        }
+    },
+    "target-dir" : "Innova/AngularUITranslationBundle"
+}
