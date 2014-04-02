@@ -1,57 +1,59 @@
-function TranslationFilter() {
-    return function (text, placeholder, domain) {
-    	if (typeof text !== 'string') {
-    		console.error('Translation filter only works on strings.');
+'use strict';
 
-    		return text;
-    	}
+angular.module('ui.translation', [])
+    .filter('trans', function () {
+        return function (text, placeholder, domain) {
+            if (typeof text !== 'string') {
+                console.error('Translation filter only works on strings.');
 
-    	if (typeof Translator !== 'object') {
-    		console.error('Translator object not found.');
+                return text;
+            }
 
-    		return text;
-    	}
+            if (typeof Translator !== 'object') {
+                console.error('Translator object not found.');
 
-		if (typeof placeholder !== 'object') {
-			placeholder = {};
-		}
+                return text;
+            }
 
-		var search = text;
-		if (typeof domain === 'string' && domain.length !== 0) {
-			search = domain + ':' + text;
-		}
+            if (typeof placeholder !== 'object') {
+                placeholder = {};
+            }
 
-        return Translator.get(search, placeholder);
-    };
-}
+            var search = text;
+            if (typeof domain === 'string' && domain.length !== 0) {
+                search = domain + ':' + text;
+            }
 
-function TranslationChoiceFilter() {
-    return function (text, count, placeholder, domain) {
-    	if (typeof text !== 'string') {
-    		console.error('Translation filter only works on strings.');
+            return Translator.get(search, placeholder);
+        };
+    })
+    .filter('transChoice', function () {
+        return function (text, count, placeholder, domain) {
+            if (typeof text !== 'string') {
+                console.error('Translation filter only works on strings.');
 
-    		return text;
-    	}
-    	
-    	if (typeof Translator !== 'object') {
-    		console.error('Translator object not found.');
+                return text;
+            }
 
-    		return text;
-    	}
+            if (typeof Translator !== 'object') {
+                console.error('Translator object not found.');
 
-    	if (typeof count !== 'number' && parseInt(count) != count) {
-    		count = 0
-    	}
+                return text;
+            }
 
-		if (typeof placeholder !== 'object') {
-			placeholder = {};
-		}
+            if (typeof count !== 'number' && parseInt(count) != count) {
+                count = 0
+            }
 
-		var search = text;
-		if (typeof domain === 'string' && domain.length !== 0) {
-			search = domain + ':' + text;
-		}
+            if (typeof placeholder !== 'object') {
+                placeholder = {};
+            }
 
-        return Translator.get(search, placeholder, count);
-    };
-}
+            var search = text;
+            if (typeof domain === 'string' && domain.length !== 0) {
+                search = domain + ':' + text;
+            }
+
+            return Translator.get(search, placeholder, count);
+        };
+    });
