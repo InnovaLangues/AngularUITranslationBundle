@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```
-$ composer require "innova/angular-ui-translation-bundle" "~3.0.0"
+$ composer require "innova/angular-ui-translation-bundle" "~5.0"
 ```
 
 Requirements
